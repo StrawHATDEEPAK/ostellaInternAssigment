@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ostello_intern_assignement/dummy_data/coaching_data.dart';
+import 'package:ostello_intern_assignement/model/coaching_data_model.dart';
+import 'package:ostello_intern_assignement/widgets/coaching_list_widget.dart';
 import 'package:ostello_intern_assignement/widgets/filter_chip_widgets.dart';
 
 class FirstScreen extends StatelessWidget {
@@ -72,6 +75,7 @@ class FirstScreen extends StatelessWidget {
             isSelected: false,
             icon: Icons.keyboard_arrow_down_outlined,
           ),
+          const CoachingListWidget()
         ],
       ),
     );
