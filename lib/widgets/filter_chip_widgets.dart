@@ -20,7 +20,7 @@ class FilterChipWidget extends StatefulWidget {
 
 class _FilterChipWidgetState extends State<FilterChipWidget> {
   bool isSelected = false;
-  String selectedValue = '';
+  dynamic selectedValue = '';
 
   @override
   void initState() {
@@ -87,7 +87,7 @@ class _FilterChipWidgetState extends State<FilterChipWidget> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      selectedValue,
+                      '$selectedValue',
                       style: TextStyle(
                         fontSize: 17,
                         fontFamily: AppFonts.internsans,
