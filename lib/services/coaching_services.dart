@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:ostello_intern_assignement/dummy_data/coaching_data.dart';
 
 import '../model/coaching_data_model.dart';
@@ -16,7 +17,6 @@ class CoachingServices {
         }
       },
     );
-
     return coachingData;
   }
 }

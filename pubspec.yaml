@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  maps_launcher: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -77,8 +79,8 @@ flutter:
   fonts:
     - family: intersans
       fonts:
-        - asset: assets/fonts/Fontspring-DEMO-intersans-bold.otf
-        - asset: assets/fonts/Fontspring-DEMO-intersans-medium.otf
+        - asset: lib/assets/fonts/intersansbold.otf
+        - asset: lib/assets/fonts/intersansmedium.otf
           
   #   - family: Trajan Pro
   #     fonts:

@@ -3,7 +3,7 @@ import 'dart:convert';
 class CoachingDataModel {
   final String name;
   final String address;
-  final String rating;
+  final double rating;
   final List<String> subjects;
   final String image;
   final int mutualFriendsStudyHere;
@@ -37,7 +37,7 @@ class CoachingDataModel {
     return CoachingDataModel(
       name: map['name'] ?? '',
       address: map['address'] ?? '',
-      rating: map['rating'] ?? '',
+      rating: map['rating']?.toDouble() ?? 0.0,
       subjects: List<String>.from(map['subjects']),
       image: map['image'] ?? '',
       mutualFriendsStudyHere: map['mutualFriendsStudyHere']?.toInt() ?? 0,
