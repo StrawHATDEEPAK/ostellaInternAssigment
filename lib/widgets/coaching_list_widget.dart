@@ -35,7 +35,19 @@ class _CoachingListWidgetState extends State<CoachingListWidget> {
       builder: (context, snapshot) {
         debugPrint(snapshot.data.toString());
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return const Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: double.infinity,
+              ),
+              SizedBox(
+                height: 200,
+              ),
+              CircularProgressIndicator()
+            ],
+          );
         }
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
