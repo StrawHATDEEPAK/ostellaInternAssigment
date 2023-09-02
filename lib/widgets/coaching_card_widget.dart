@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:ostello_intern_assignement/constants/constants.dart';
 import 'package:ostello_intern_assignement/widgets/subject_list_widget.dart';
@@ -72,6 +73,18 @@ class CoachingCardWidget extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image(
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            } else {
+                              return Center(
+                                child: LoadingAnimationWidget.fourRotatingDots(
+                                    color:
+                                        const Color.fromARGB(255, 119, 85, 214),
+                                    size: 35),
+                              );
+                            }
+                          },
                           image: NetworkImage(
                             image,
                           ),
@@ -105,7 +118,7 @@ class CoachingCardWidget extends StatelessWidget {
                       Align(
                           alignment: Alignment.bottomCenter,
                           child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 2.8,
+                              width: MediaQuery.of(context).size.width / 2.76,
                               child: GestureDetector(
                                 onTap: () {
                                   MapsLauncher.launchQuery(address);
@@ -126,8 +139,9 @@ class CoachingCardWidget extends StatelessWidget {
                                                 address.split(',').length - 3,
                                                 address.split(',').length - 1)
                                             .join(','),
+                                        maxLines: 1,
                                         style: const TextStyle(
-                                            fontSize: 12,
+                                            fontSize: 11,
                                             color: Colors.white,
                                             fontFamily: AppFonts.internsans,
                                             fontWeight: FontWeight.bold),
@@ -150,7 +164,7 @@ class CoachingCardWidget extends StatelessWidget {
                         Flexible(
                           child: Text(
                             name,
-                            overflow: TextOverflow.visible,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontFamily: AppFonts.internsans,
                               fontSize: 24,
@@ -180,14 +194,16 @@ class CoachingCardWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Wrap(
-                          direction: Axis.horizontal,
-                          children: [
-                            for (String subject in subjects)
-                              SubjectListWidget(
-                                title: subject,
-                              ),
-                          ],
+                        Flexible(
+                          child: Wrap(
+                            direction: Axis.horizontal,
+                            children: [
+                              for (String subject in subjects)
+                                SubjectListWidget(
+                                  title: subject,
+                                ),
+                            ],
+                          ),
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -201,7 +217,7 @@ class CoachingCardWidget extends StatelessWidget {
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 236, 228, 255),
                                   fontFamily: AppFonts.internsans,
-                                  fontSize: 15,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.normal),
                             ),
                           ),
