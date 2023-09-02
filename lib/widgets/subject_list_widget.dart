@@ -26,6 +26,7 @@ class SubjectListWidget extends StatelessWidget {
           child: Text(
             title,
             style: const TextStyle(
+                fontSize: 13,
                 color: Color.fromARGB(255, 119, 85, 214),
                 fontFamily: AppFonts.internsans,
                 fontWeight: FontWeight.bold),
